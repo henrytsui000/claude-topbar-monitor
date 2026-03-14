@@ -22,7 +22,14 @@ cd claude-topbar-monitor
 make install
 ```
 
-Restart GNOME Shell (**X11**: `Alt+F2` → type `r` → `Enter` | **Wayland**: log out and back in), then enable:
+Restart GNOME Shell:
+
+| Session | How to restart |
+|---------|---------------|
+| **X11** | `Alt+F2` → type `r` → `Enter` |
+| **Wayland** | Log out and log back in |
+
+Enable the extension:
 
 ```bash
 gnome-extensions enable claude-monitor@henrytsui.dev
