@@ -1,0 +1,69 @@
+import Gio from 'gi://Gio';
+import Adw from 'gi://Adw';
+import Gtk from 'gi://Gtk';
+
+import {ExtensionPreferences, gettext as _}
+    from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+
+export default class ClaudeMonitorPreferences extends ExtensionPreferences {
+
+    fillPreferencesWindow(window) {
+        const settings = this.getSettings();
+
+        const page = new Adw.PreferencesPage({
+            title: _('Settings'),
+            icon_name: 'preferences-system-symbolic',
+        });
+        window.add(page);
+
+        const infoGroup = new Adw.PreferencesGroup({
+            title: _('Data Source'),
+            description: _('Usage is read from local Claude Code session logs in ~/.claude/projects/'),
+        });
+        page.add(infoGroup);
+
+        const refreshGroup = new Adw.PreferencesGroup({
+            title: _('Refresh'),
+        });
+        page.add(refreshGroup);
+
+        const refreshRow = new Adw.SpinRow({
+            title: _('Refresh Interval'),
+            subtitle: _('How often to scan session logs (seconds)'),
+            adjustment: new Gtk.Adjustment({
+                lower: 30,
+                upper: 3600,
+                step_increment: 30,
+                page_increment: 300,
+                value: settings.get_int('refresh-interval'),
+            }),
+        });
+        refreshGroup.add(refreshRow);
+        settings.bind('refresh-interval', refreshRow, 'value', Gio.SettingsBindFlags.DEFAULT);
+
+        const displayGroup = new Adw.PreferencesGroup({
+            title: _('Panel Display'),
+        });
+        page.add(displayGroup);
+
+        const modeRow = new Adw.ComboRow({
+            title: _('Top Bar Display'),
+            subtitle: _('What to show in the panel'),
+            model: Gtk.StringList.new(['Daily Cost', 'Token Count', 'Both']),
+        });
+        displayGroup.add(modeRow);
+
+        const modeMap = ['cost', 'tokens', 'both'];
+        const currentMode = settings.get_string('display-mode');
+        modeRow.set_selected(Math.max(0, modeMap.indexOf(currentMode)));
+
+        modeRow.connect('notify::selected', () => {
+            settings.set_string('display-mode', modeMap[modeRow.get_selected()] || 'cost');
+        });
+
+        settings.connect('changed::display-mode', () => {
+            const mode = settings.get_string('display-mode');
+            modeRow.set_selected(Math.max(0, modeMap.indexOf(mode)));
+        });
+    }
+}
