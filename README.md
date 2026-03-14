@@ -22,20 +22,13 @@ cd claude-topbar-monitor
 make install
 ```
 
-Then restart GNOME Shell:
-
-| Session | How to restart |
-|---------|---------------|
-| **X11** | `Alt+F2` → type `r` → `Enter` |
-| **Wayland** | Log out and log back in |
-
-Finally, enable:
+Restart GNOME Shell (**X11**: `Alt+F2` → type `r` → `Enter` | **Wayland**: log out and back in), then enable:
 
 ```bash
 gnome-extensions enable claude-monitor@henrytsui.dev
 ```
 
-> **That's it!** No API keys or configuration needed — it reads your Claude Code credentials automatically.
+> No API keys or configuration needed — it reads your Claude Code credentials automatically.
 
 ## Features
 
