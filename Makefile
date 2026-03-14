@@ -1,6 +1,6 @@
 UUID = claude-monitor@henrytsui.dev
 EXT_DIR = $(HOME)/.local/share/gnome-shell/extensions/$(UUID)
-DIST_FILES = extension.js prefs.js metadata.json stylesheet.css schemas/
+DIST_FILES = extension.js prefs.js metadata.json stylesheet.css schemas/ icons/
 
 .PHONY: build install uninstall pack clean
 
@@ -11,6 +11,7 @@ install: build
 	mkdir -p $(EXT_DIR)
 	cp extension.js prefs.js metadata.json stylesheet.css $(EXT_DIR)/
 	cp -r schemas $(EXT_DIR)/
+	cp -r icons $(EXT_DIR)/
 	@echo ""
 	@echo "Installed. Restart GNOME Shell, then run:"
 	@echo "  gnome-extensions enable $(UUID)"

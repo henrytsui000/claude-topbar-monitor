@@ -15,5 +15,17 @@
       <description>What to show in the top bar: "cost" for daily cost, "tokens" for token count, "both" for both</description>
     </key>
 
+    <key name="panel-show-session" type="b">
+      <default>true</default>
+      <summary>Show session (5h) usage in panel</summary>
+      <description>Whether to show the 5-hour session utilization in the top bar</description>
+    </key>
+
+    <key name="panel-show-weekly" type="b">
+      <default>true</default>
+      <summary>Show weekly (7d) usage in panel</summary>
+      <description>Whether to show the 7-day weekly utilization in the top bar</description>
+    </key>
+
   </schema>
 </schemalist>

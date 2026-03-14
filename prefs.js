@@ -16,11 +16,15 @@ export default class ClaudeMonitorPreferences extends ExtensionPreferences {
         });
         window.add(page);
 
+        // ─── Info ───────────────────────────────────────────────────────
+
         const infoGroup = new Adw.PreferencesGroup({
             title: _('Data Source'),
             description: _('Usage is read from local Claude Code session logs in ~/.claude/projects/'),
         });
         page.add(infoGroup);
+
+        // ─── Refresh ────────────────────────────────────────────────────
 
         const refreshGroup = new Adw.PreferencesGroup({
             title: _('Refresh'),
@@ -40,6 +44,8 @@ export default class ClaudeMonitorPreferences extends ExtensionPreferences {
         });
         refreshGroup.add(refreshRow);
         settings.bind('refresh-interval', refreshRow, 'value', Gio.SettingsBindFlags.DEFAULT);
+
+        // ─── Display ────────────────────────────────────────────────────
 
         const displayGroup = new Adw.PreferencesGroup({
             title: _('Panel Display'),
@@ -65,5 +71,27 @@ export default class ClaudeMonitorPreferences extends ExtensionPreferences {
             const mode = settings.get_string('display-mode');
             modeRow.set_selected(Math.max(0, modeMap.indexOf(mode)));
         });
+
+        // ─── Panel Indicators ─────────────────────────────────────────
+
+        const indicatorGroup = new Adw.PreferencesGroup({
+            title: _('Panel Indicators'),
+            description: _('Choose which rate limits to show in the top bar'),
+        });
+        page.add(indicatorGroup);
+
+        const sessionRow = new Adw.SwitchRow({
+            title: _('Session (S)'),
+            subtitle: _('5-hour rolling usage window'),
+        });
+        indicatorGroup.add(sessionRow);
+        settings.bind('panel-show-session', sessionRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+
+        const weeklyRow = new Adw.SwitchRow({
+            title: _('Weekly (W)'),
+            subtitle: _('7-day rolling usage window'),
+        });
+        indicatorGroup.add(weeklyRow);
+        settings.bind('panel-show-weekly', weeklyRow, 'active', Gio.SettingsBindFlags.DEFAULT);
     }
 }
