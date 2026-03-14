@@ -275,7 +275,8 @@ export default class ClaudeMonitorExtension extends Extension {
         this._indicator.add_child(box);
 
         this._buildMenu();
-        Main.panel.addToStatusArea(this.uuid, this._indicator, 1, 'left');
+        const position = this._settings.get_string('panel-position');
+        Main.panel.addToStatusArea(this.uuid, this._indicator, 1, position);
 
         this._settingsChangedId = this._settings.connect('changed', () => {
             this._restartTimer();

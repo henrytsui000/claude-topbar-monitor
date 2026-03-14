@@ -93,5 +93,32 @@ export default class ClaudeMonitorPreferences extends ExtensionPreferences {
         });
         indicatorGroup.add(weeklyRow);
         settings.bind('panel-show-weekly', weeklyRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+
+        // ─── Position ─────────────────────────────────────────────────
+
+        const positionGroup = new Adw.PreferencesGroup({
+            title: _('Position'),
+        });
+        page.add(positionGroup);
+
+        const positionRow = new Adw.ComboRow({
+            title: _('Panel Position'),
+            subtitle: _('Where to place the indicator (requires restart)'),
+            model: Gtk.StringList.new(['Left', 'Right']),
+        });
+        positionGroup.add(positionRow);
+
+        const posMap = ['left', 'right'];
+        const currentPos = settings.get_string('panel-position');
+        positionRow.set_selected(Math.max(0, posMap.indexOf(currentPos)));
+
+        positionRow.connect('notify::selected', () => {
+            settings.set_string('panel-position', posMap[positionRow.get_selected()] || 'left');
+        });
+
+        settings.connect('changed::panel-position', () => {
+            const pos = settings.get_string('panel-position');
+            positionRow.set_selected(Math.max(0, posMap.indexOf(pos)));
+        });
     }
 }

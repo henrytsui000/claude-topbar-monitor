@@ -27,5 +27,11 @@
       <description>Whether to show the 7-day weekly utilization in the top bar</description>
     </key>
 
+    <key name="panel-position" type="s">
+      <default>"left"</default>
+      <summary>Panel position</summary>
+      <description>Where to place the indicator in the top bar: "left" or "right"</description>
+    </key>
+
   </schema>
 </schemalist>
