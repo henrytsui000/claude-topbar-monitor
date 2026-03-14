@@ -14,20 +14,28 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 ### Full Screen
 ![Full Screen](screenshots/fullscreen.png)
 
-## Install
+## Quick Start
 
 ```bash
-git clone https://github.com/henrytsui000/claude-topbar-monitor.git && cd claude-topbar-monitor && make install
+git clone https://github.com/henrytsui000/claude-topbar-monitor.git
+cd claude-topbar-monitor
+make install
 ```
 
-Then restart GNOME Shell and enable:
+Then restart GNOME Shell:
 
-- **X11**: Press `Alt+F2`, type `r`, press `Enter`
-- **Wayland**: Log out and log back in
+| Session | How to restart |
+|---------|---------------|
+| **X11** | `Alt+F2` → type `r` → `Enter` |
+| **Wayland** | Log out and log back in |
+
+Finally, enable:
 
 ```bash
 gnome-extensions enable claude-monitor@henrytsui.dev
 ```
+
+> **That's it!** No API keys or configuration needed — it reads your Claude Code credentials automatically.
 
 ## Features
 
