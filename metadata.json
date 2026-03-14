@@ -1,0 +1,9 @@
+{
+    "uuid": "claude-monitor@henrytsui.dev",
+    "name": "Claude Monitor",
+    "description": "Monitor your Anthropic Claude API usage directly from the GNOME top bar. Shows daily/monthly costs, token usage, and per-model breakdown.",
+    "shell-version": ["45", "46", "47", "48"],
+    "url": "https://github.com/henrytsui000/Claude-Monitor",
+    "settings-schema": "org.gnome.shell.extensions.claude-monitor",
+    "version-name": "1.0"
+}

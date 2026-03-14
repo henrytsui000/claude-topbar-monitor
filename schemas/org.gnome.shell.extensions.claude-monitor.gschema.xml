@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.claude-monitor"
+          path="/org/gnome/shell/extensions/claude-monitor/">
+
+    <key name="refresh-interval" type="i">
+      <default>300</default>
+      <summary>Refresh interval (seconds)</summary>
+      <description>How often to scan session logs for usage data</description>
+    </key>
+
+    <key name="display-mode" type="s">
+      <default>"cost"</default>
+      <summary>Panel display mode</summary>
+      <description>What to show in the top bar: "cost" for daily cost, "tokens" for token count, "both" for both</description>
+    </key>
+
+  </schema>
+</schemalist>
