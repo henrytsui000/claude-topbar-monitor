@@ -17,7 +17,7 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 ## Install
 
 ```bash
-git clone https://github.com/henrytsui000/gnome-claude-monitor.git && cd gnome-claude-monitor && make install
+git clone https://github.com/henrytsui000/claude-topbar-monitor.git && cd claude-topbar-monitor && make install
 ```
 
 Then restart GNOME Shell and enable:
