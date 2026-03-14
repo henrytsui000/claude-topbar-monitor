@@ -4,7 +4,7 @@
           path="/org/gnome/shell/extensions/claude-monitor/">
 
     <key name="refresh-interval" type="i">
-      <default>300</default>
+      <default>60</default>
       <summary>Refresh interval (seconds)</summary>
       <description>How often to scan session logs for usage data</description>
     </key>

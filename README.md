@@ -14,6 +14,21 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 ### Full Screen
 ![Full Screen](screenshots/fullscreen.png)
 
+## Install
+
+```bash
+git clone https://github.com/henrytsui000/gnome-claude-monitor.git && cd gnome-claude-monitor && make install
+```
+
+Then restart GNOME Shell and enable:
+
+- **X11**: Press `Alt+F2`, type `r`, press `Enter`
+- **Wayland**: Log out and log back in
+
+```bash
+gnome-extensions enable claude-monitor@henrytsui.dev
+```
+
 ## Features
 
 - **Top bar indicator** with Claude logo icon + session/weekly usage percentages
@@ -39,31 +54,6 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 
 **Token costs**: Scans Claude Code session logs (`.jsonl` files in `~/.claude/projects/`) and calculates costs using published per-token pricing.
 
-## Install
-
-```bash
-git clone https://github.com/henrytsui000/Claude-Monitor.git
-cd Claude-Monitor
-make install
-```
-
-Restart GNOME Shell:
-
-- **X11**: Press `Alt+F2`, type `r`, press `Enter`
-- **Wayland**: Log out and log back in
-
-Enable the extension:
-
-```bash
-gnome-extensions enable claude-monitor@henrytsui.dev
-```
-
-### One-liner
-
-```bash
-git clone https://github.com/henrytsui000/Claude-Monitor.git && cd Claude-Monitor && make install
-```
-
 ## Settings
 
 ```bash
@@ -72,7 +62,7 @@ gnome-extensions prefs claude-monitor@henrytsui.dev
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| Refresh Interval | 300s | How often to fetch usage data |
+| Refresh Interval | 60s | How often to fetch usage data |
 | Display Mode | Cost | Show cost, token count, or both |
 | Session (S) | On | Show 5-hour usage in panel |
 | Weekly (W) | On | Show 7-day usage in panel |
