@@ -29,7 +29,7 @@ Restart GNOME Shell:
 | **X11** | `Alt+F2` → type `r` → `Enter` |
 | **Wayland** | Log out and log back in |
 
-Enable the extension:
+Enable the extension by running:
 
 ```bash
 gnome-extensions enable claude-monitor@henrytsui.dev
