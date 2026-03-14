@@ -5,8 +5,14 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 ![GNOME 46](https://img.shields.io/badge/GNOME-45%20|%2046%20|%2047%20|%2048-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-<!-- TODO: Add screenshot -->
-<!-- ![Screenshot](screenshots/panel.png) -->
+### Top Bar
+![Top Bar](screenshots/topbar.png)
+
+### Dropdown Menu
+![Dropdown](screenshots/dropdown.png)
+
+### Full Screen
+![Full Screen](screenshots/fullscreen.png)
 
 ## Features
 
@@ -24,6 +30,7 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
   - Per-model cost breakdown
   - Session count
 - **Configurable display** — show Session (S), Weekly (W), or both in panel
+- **Panel position** — place on left or right side of the top bar
 - **Zero configuration** — reads OAuth token and session logs from `~/.claude/` automatically
 
 ## How It Works
@@ -33,8 +40,6 @@ A GNOME Shell extension that shows your [Claude Code](https://docs.anthropic.com
 **Token costs**: Scans Claude Code session logs (`.jsonl` files in `~/.claude/projects/`) and calculates costs using published per-token pricing.
 
 ## Install
-
-### From source
 
 ```bash
 git clone https://github.com/henrytsui000/Claude-Monitor.git
@@ -71,6 +76,7 @@ gnome-extensions prefs claude-monitor@henrytsui.dev
 | Display Mode | Cost | Show cost, token count, or both |
 | Session (S) | On | Show 5-hour usage in panel |
 | Weekly (W) | On | Show 7-day usage in panel |
+| Panel Position | Left | Place indicator on left or right |
 
 ## Uninstall
 
@@ -82,14 +88,6 @@ make uninstall
 
 - GNOME Shell 45, 46, 47, or 48
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI (generates the session logs and OAuth credentials)
-
-## Packaging
-
-Create a zip for [extensions.gnome.org](https://extensions.gnome.org):
-
-```bash
-make pack
-```
 
 ## Pricing Reference
 
